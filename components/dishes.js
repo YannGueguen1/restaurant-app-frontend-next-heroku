@@ -62,7 +62,7 @@ const GET_RESTAURANT_DISHES = gql`
                   <CardText>{res.description}</CardText>
                 </CardBody>
                 <div className="card-footer">
-                  <Button color="info"
+                  <Button
                     outline
                     color="primary"
                     onClick = {()=> addItem(res)}
