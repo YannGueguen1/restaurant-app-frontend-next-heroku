@@ -5,10 +5,13 @@ import Head from "next/head";
 import Link from "next/link";
 import { Container, Nav, NavItem } from "reactstrap";
 import AppContext from "./context";
+import { logout } from "../components/auth";
 
 const Layout = (props) => {
 const title = "Full Stack Restaurant App";
-const {user} = useContext(AppContext);
+const {user, setUser, isAuthenticated} = useContext(AppContext);
+console.log("currentContext:", useContext(AppContext))
+
   return (
     <div>
       <Head>

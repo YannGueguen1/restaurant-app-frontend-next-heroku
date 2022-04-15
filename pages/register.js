@@ -26,7 +26,7 @@ const Register = () => {
         <Col sm="12" md={{ size: 5, offset: 3 }}>
           <div className="paper">
             <div className="header">
-              <img src="http://localhost:1337/uploads/5a60a9d26a764e7cba1099d8b157b5e9.png" />
+              <img src="http://localhost:1337/uploads/34d160de396c4fea8ede1f17b353ca41.jpg" />
             </div>
             <section className="wrapper">
               {Object.entries(error).length !== 0 &&
@@ -132,10 +132,11 @@ const Register = () => {
           }
           .header {
             width: 100%;
-            height: 120px;
+            height: 200px;
             background-color: #2196f3;
             margin-bottom: 30px;
             border-radius-top: 6px;
+            text-align: center;
           }
           .wrapper {
             padding: 10px 30px 20px 30px !important;
@@ -144,7 +145,8 @@ const Register = () => {
             color: blue !important;
           }
           img {
-            margin: 15px 30px 10px 50px;
+            margin: 15px 50px 10px 50px;
+            height:90%;
           }
         `}
       </style>
