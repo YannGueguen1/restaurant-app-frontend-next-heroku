@@ -14,14 +14,17 @@ import {
 } from "reactstrap";
 import { login } from "../components/auth";
 import AppContext from "../components/context";
+// import {MyApp} from "./_app";
 
 function Login(props) {
   const [data, updateData] = useState({ identifier: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const router = useRouter();
+  // const appContext = useContext(MyApp);
   const appContext = useContext(AppContext);
-
+  // const {user, setUser, isAuthenticated} = useContext(AppContext);
+  
   useEffect(() => {
     if (appContext.isAuthenticated) {
       router.push("/"); // redirect if you're already logged in
@@ -38,7 +41,7 @@ function Login(props) {
         <Col sm="12" md={{ size: 5, offset: 3 }}>
           <div className="paper">
             <div className="header">
-              <img src="http://localhost:1337/uploads/5a60a9d26a764e7cba1099d8b157b5e9.png" />
+              <img src="http://localhost:1337/uploads/75d0162b3b3e437aaa8953ca56a0d1dc.jpg" />
             </div>
             <section className="wrapper">
               {Object.entries(error).length !== 0 &&
@@ -91,6 +94,12 @@ function Login(props) {
                             setLoading(false);
                             // set authed User in global context to update header/app state
                             appContext.setUser(res.data.user);
+                            alert("You are now logged in as "&res.data.user)
+                            // console.log("context?");
+                            // setUser(res.data.user);
+                            // appContext.user=res.data.user;
+                            // appContext.isAuthenticated=true;
+                            // console.log("context:", appContext);
                           })
                           .catch((error) => {
                             //setError(error.response.data);
@@ -122,10 +131,11 @@ function Login(props) {
           }
           .header {
             width: 100%;
-            height: 120px;
+            height: 200px;
             background-color: #2196f3;
             margin-bottom: 30px;
             border-radius-top: 6px;
+            text-align: center;
           }
           .wrapper {
             padding: 10px 30px 20px 30px !important;
@@ -134,7 +144,8 @@ function Login(props) {
             color: blue !important;
           }
           img {
-            margin: 15px 30px 10px 50px;
+            margin: 15px 50px 10px 50px;
+            height:90%;
           }
         `}
       </style>

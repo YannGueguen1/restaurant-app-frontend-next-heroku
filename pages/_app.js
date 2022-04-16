@@ -9,11 +9,12 @@ import Cookie from "js-cookie"
 function MyApp(props){
   var {cart,addItem,removeItem, user, setUser} = useContext(AppContext)
   const [state,setState] = useState({cart:cart});
+  const [stateUser,setStateUser] = useState(null);
   const { Component, pageProps } = props;
   
   
   setUser = (user) => {
-    setState({ user });
+    setStateUser( user);
   };
   addItem = (item) => {
     let { items } = state.cart;
@@ -83,7 +84,8 @@ function MyApp(props){
   }
 
   return (
-    <AppContext.Provider value={{cart: state.cart, addItem: addItem, removeItem: removeItem,isAuthenticated:false,user:null,setUser:()=>{}}}>
+    // <AppContext.Provider value={{cart: state.cart, addItem: addItem, removeItem: removeItem,isAuthenticated:false,user:null,setUser:(user) => setState({ user })}}>
+    <AppContext.Provider value={{cart: state.cart, addItem: addItem, removeItem: removeItem,isAuthenticated:false,user:stateUser,setUser:setUser}}>
       <Head>
         <link
           rel="stylesheet"

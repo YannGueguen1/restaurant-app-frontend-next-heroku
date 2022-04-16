@@ -65,7 +65,11 @@ const GET_RESTAURANT_DISHES = gql`
                   <Button
                     outline
                     color="primary"
-                    onClick = {()=> addItem(res)}
+                    onClick = {()=> {
+                      // console.log("before:")
+                      addItem(res)
+                      // console.log("after:")
+                    }}
                   >
                     + Add To Cart
                   </Button>
